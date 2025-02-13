@@ -31,9 +31,9 @@ export default function App() {
       <Route path="/" element={<Navigate to="/auth/login" />} />
 
       {/* Роутинг для аутентифікації */}
-      <Route path="/auth/login" element={<Login />} />
-      <Route path="/auth/signup" element={<Signup />} />
-      <Route path="/auth/verify" element={<Verification />} />
+      <Route path="/auth/login" element={<Login API_URL={API_URL} />} />
+      <Route path="/auth/signup" element={<Signup API_URL={API_URL} />} />
+      <Route path="/auth/verify" element={<Verification API_URL={API_URL} />} />
 
       {/* Роутинг для користувацького інтерфейсу після авторизації */}
       <Route path="/dashboard" element={<Layout API_URL={API_URL} />}>
