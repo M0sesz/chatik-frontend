@@ -28,29 +28,14 @@ export default function App() {
       <Route path="/" element={<Navigate to="/auth/login" />} />
 
       {/* <Route index={true} element={<Messages />} /> */}
-      <Route
-        path="https://chatil-backend.onrender.com/auth/login"
-        element={<Login />}
-      />
-      <Route
-        path="https://chatil-backend.onrender.com/auth/signup"
-        element={<Signup />}
-      />
-      <Route
-        path="https://chatil-backend.onrender.com/auth/verify"
-        element={<Verification />}
-      />
+      <Route path="/auth/login" element={<Login />} />
+      <Route path="/auth/signup" element={<Signup />} />
+      <Route path="/auth/verify" element={<Verification />} />
 
-      <Route
-        path="https://chatil-backend.onrender.com/dashboard"
-        element={<Layout />}
-      >
+      <Route path="/dashboard" element={<Layout />}>
         <Route index element={<Messages />} />
 
-        <Route
-          path="https://chatil-backend.onrender.com/profile"
-          element={<ProfilePage />}
-        />
+        <Route path="profile" element={<ProfilePage />} />
       </Route>
     </Routes>
   );
