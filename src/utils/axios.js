@@ -1,7 +1,7 @@
 import axios from "axios";
 // config
 
-const BASE_URL = "http://localhost:3030";
+const BASE_URL = "https://chatik-frontend-ae9r.vercel.app";
 
 // ----------------------------------------------------------------------
 
