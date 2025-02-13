@@ -21,24 +21,36 @@ export default function App() {
       : bodyClass.remove(className);
   }, []);
 
-  // Використовуємо API URL з .env файлу
-  const API_URL =
-    import.meta.env.VITE_API_URL || "https://chatil-backend.onrender.com";
-
   return (
     <Routes>
-      {/* Перенаправлення з / на /auth/login */}
+      {/* Redirect / to /auth/login */}
+
       <Route path="/" element={<Navigate to="/auth/login" />} />
 
-      {/* Роутинг для аутентифікації */}
-      <Route path="/auth/login" element={<Login API_URL={API_URL} />} />
-      <Route path="/auth/signup" element={<Signup API_URL={API_URL} />} />
-      <Route path="/auth/verify" element={<Verification API_URL={API_URL} />} />
+      {/* <Route index={true} element={<Messages />} /> */}
+      <Route
+        path="https://chatil-backend.onrender.com/auth/login"
+        element={<Login />}
+      />
+      <Route
+        path="https://chatil-backend.onrender.com/auth/signup"
+        element={<Signup />}
+      />
+      <Route
+        path="https://chatil-backend.onrender.com/auth/verify"
+        element={<Verification />}
+      />
 
-      {/* Роутинг для користувацького інтерфейсу після авторизації */}
-      <Route path="/dashboard" element={<Layout API_URL={API_URL} />}>
-        <Route index element={<Messages API_URL={API_URL} />} />
-        <Route path="profile" element={<ProfilePage API_URL={API_URL} />} />
+      <Route
+        path="https://chatil-backend.onrender.com/dashboard"
+        element={<Layout />}
+      >
+        <Route index element={<Messages />} />
+
+        <Route
+          path="https://chatil-backend.onrender.com/profile"
+          element={<ProfilePage />}
+        />
       </Route>
     </Routes>
   );
