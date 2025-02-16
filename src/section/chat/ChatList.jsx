@@ -48,6 +48,9 @@ export default function ChatList({ open, handleClose }) {
   const filteredConversations = conversations
     .map((el) => {
       const other_user = el.participants.find((e) => e._id !== user._id);
+      if (!other_user) {
+        return null; // або інший fallback, якщо користувача не знайдено
+      }
       return {
         key: el._id,
         id: el._id,
@@ -57,11 +60,14 @@ export default function ChatList({ open, handleClose }) {
         status: other_user.status,
       };
     })
-    .filter((conversation) =>
-      conversation.name
-        .toLowerCase()
-        .includes(debouncedSearchTerm.toLowerCase())
-    ); // Filter based on debouncedSearchTerm
+    .filter(
+      (conversation) =>
+        conversation &&
+        conversation.name // Перевірка, чи не null
+          .toLowerCase()
+          .includes(debouncedSearchTerm.toLowerCase())
+    );
+  // Filter based on debouncedSearchTerm
 
   return (
     <>
